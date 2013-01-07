@@ -1,0 +1,31 @@
+﻿<Page x:Name="page" x:Class="ColorWord.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="720" Width="1280" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged" >
+	<Page.Resources>
+		<Storyboard x:Key="PageFade">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="page">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</Page.Resources>
+	<Page.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource PageFade}"/>
+		</EventTrigger>
+	</Page.Triggers>
+    <Canvas>
+        <TextBlock  HorizontalAlignment="Left"  Name="ColorWordText" Text="顏色" VerticalAlignment="Top" FontSize="64" Foreground="#FF9500C5" Canvas.Left="181" Canvas.Top="202" />
+        <Button Content="亂數顏色" Height="23" HorizontalAlignment="Left" Margin="320,227,0,0" Name="RandomWordButton" VerticalAlignment="Top" Width="75" Click="RandomWordButton_Click" Canvas.Left="50" Canvas.Top="100" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Name="textBlock1" Text="TextBlock" VerticalAlignment="Top" Canvas.Left="352" Canvas.Top="190" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Name="textBlock2" Text="TextBlock" VerticalAlignment="Top" Canvas.Left="352" Canvas.Top="228" />
+        <TextBlock FontFamily="Meiryo UI" FontSize="32" FontWeight="SemiBold" Height="44"  Name="SpeechStatus" Text="初始化語音串流中...(請稍後)" Width="432" Canvas.Left="13" Canvas.Top="2" />
+        <TextBlock Canvas.Left="181" Canvas.Top="74"  Name="backTimer_Text" Text="" FontSize="32" />
+        <TextBlock Canvas.Left="263" Canvas.Top="138" Height="23" Name="SRColorName" Text="TextBlock" Width="143" />
+        <Button Canvas.Left="28" Canvas.Top="170" Content="Button" Height="23" Name="button1" Width="75" Click="button1_Click" />
+        <Canvas.Background>
+            <ImageBrush ImageSource="/ColorWord;component/Images/GameBackground.jpg" />
+        </Canvas.Background>
+    </Canvas>
+</Page>
